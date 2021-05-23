@@ -1,0 +1,26 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+using namespace std;
+
+int right_max(int arr[],int i){
+    int maximum=0;
+    for(int j=0;j<=i;j++){
+        maximum=max(maximum,arr[j]);
+    }return maximum;
+}
+int left_max(int arr[],int i,int n){
+    int maximum=0;
+    for(int j=n-1;j>=i;j--){
+        maximum=max(maximum,arr[j]);
+    }return maximum;
+}
+
+int main() {
+   int arr[]={4,0,5,2,3};
+   int rain_water=0;
+   for(int i=1;i<4;i++){
+       rain_water=rain_water+(min(right_max(arr,i),left_max(arr,i,5))-arr[i]);
+   }cout<<rain_water;
+
+    return 0;
+}
